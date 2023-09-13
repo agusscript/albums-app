@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MaterialSkin;
+using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +12,17 @@ using System.Windows.Forms;
 
 namespace WindowsFormApp
 {
-    public partial class FormAlbums : Form
+    public partial class FormAlbums : MaterialForm
     {
         private List<Album> listAlbums;
         public FormAlbums()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Brown700, Primary.Brown700, Primary.Brown400, Accent.LightBlue200, TextShade.WHITE);
         }
 
         private void FormAlbums_Load(object sender, EventArgs e)
