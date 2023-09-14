@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using business;
 using domain;
+using System;
+using System.Collections.Generic;
 
 namespace WindowsFormApp
 {
@@ -10,28 +10,21 @@ namespace WindowsFormApp
         public List<Album> BringList()
         {
             List<Album> list = new List<Album>();
-            SqlConnection sqlConection = new SqlConnection();
-            SqlCommand sqlCommand = new SqlCommand();
-            SqlDataReader sqlDataReader;
+            DataAccess dataAccess = new DataAccess();
 
             try
             {
-                sqlConection.ConnectionString = "server=.\\SQLEXPRESS; database=ALBUMS_DB; integrated security=true";
-                sqlCommand.CommandType = System.Data.CommandType.Text;
-                sqlCommand.CommandText = "select Title, Author, UrlCoverImage, G.Name from ALBUMS A, GENRES G where A.IdGenre = G.Id";
-                sqlCommand.Connection = sqlConection;
+                dataAccess.setQuery("select Title, Author, UrlCoverImage, G.Name from ALBUMS A, GENRES G where A.IdGenre = G.Id");
+                dataAccess.executeRead();
 
-                sqlConection.Open();
-                sqlDataReader = sqlCommand.ExecuteReader();
-
-                while (sqlDataReader.Read())
+                while (dataAccess.Reader.Read())
                 {
                     Album album = new Album();
-                    album.Title = (string)sqlDataReader["Title"];
-                    album.Author = (string)sqlDataReader["Author"];
-                    album.CoverImage = (string)sqlDataReader["UrlCoverImage"];
+                    album.Title = (string)dataAccess.Reader["Title"];
+                    album.Author = (string)dataAccess.Reader["Author"];
+                    album.CoverImage = (string)dataAccess.Reader["UrlCoverImage"];
                     album.Genre = new Genre();
-                    album.Genre.Name = (string)sqlDataReader["Name"];
+                    album.Genre.Name = (string)dataAccess.Reader["Name"];
 
                     list.Add(album);
                 }
@@ -44,7 +37,7 @@ namespace WindowsFormApp
             }
             finally
             {
-                sqlConection.Close();
+                dataAccess.closeConnection();
             }
         }
     }
