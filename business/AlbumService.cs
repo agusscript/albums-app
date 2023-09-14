@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using domain;
 
 namespace WindowsFormApp
 {
-    class AlbumService
+    public class AlbumService
     {
         public List<Album> BringList()
         {
@@ -15,9 +16,9 @@ namespace WindowsFormApp
 
             try
             {
-                sqlConection.ConnectionString = "server=.\\SQLEXPRESS; database=DISCOS_DB; integrated security=true";
+                sqlConection.ConnectionString = "server=.\\SQLEXPRESS; database=ALBUMS_DB; integrated security=true";
                 sqlCommand.CommandType = System.Data.CommandType.Text;
-                sqlCommand.CommandText = "select Titulo, Autor, UrlImagenTapa from DISCOS";
+                sqlCommand.CommandText = "select Title, Author, UrlCoverImage, G.Name from ALBUMS A, GENRES G where A.IdGenre = G.Id";
                 sqlCommand.Connection = sqlConection;
 
                 sqlConection.Open();
@@ -26,9 +27,11 @@ namespace WindowsFormApp
                 while (sqlDataReader.Read())
                 {
                     Album album = new Album();
-                    album.Title = (string)sqlDataReader["Titulo"];
-                    album.Author = (string)sqlDataReader["Autor"];
-                    album.Image = (string)sqlDataReader["UrlImagenTapa"];
+                    album.Title = (string)sqlDataReader["Title"];
+                    album.Author = (string)sqlDataReader["Author"];
+                    album.CoverImage = (string)sqlDataReader["UrlCoverImage"];
+                    album.Genre = new Genre();
+                    album.Genre.Name = (string)sqlDataReader["Name"];
 
                     list.Add(album);
                 }

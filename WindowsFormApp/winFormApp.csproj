@@ -50,8 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Album.cs" />
-    <Compile Include="AlbumService.cs" />
     <Compile Include="FormAlbums.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +83,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\business\business.csproj">
+      <Project>{cf8f1cb4-51db-4f16-9ee6-8ef30db08724}</Project>
+      <Name>business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\domain\domain.csproj">
+      <Project>{5223b207-62c0-47c2-bb10-732b3ce9e800}</Project>
+      <Name>domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

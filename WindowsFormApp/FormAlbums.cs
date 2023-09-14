@@ -2,13 +2,7 @@
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using domain;
 
 namespace WindowsFormApp
 {
@@ -30,13 +24,14 @@ namespace WindowsFormApp
             AlbumService service = new AlbumService();
             listAlbums = service.BringList();
             dataGridViewAlbums.DataSource = listAlbums;
-            loadImage(listAlbums[0].Image);
+            dataGridViewAlbums.Columns[2].Visible = false;
+            loadImage(listAlbums[0].CoverImage);
         }
 
         private void dataGridViewAlbums_SelectionChanged(object sender, EventArgs e)
         {
             Album selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
-            loadImage(selectedAlbum.Image);
+            loadImage(selectedAlbum.CoverImage);
         }
 
         private void loadImage(string image)
@@ -45,7 +40,8 @@ namespace WindowsFormApp
             {
                 pictureBoxAlbumCoverImg.Load(image);
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 pictureBoxAlbumCoverImg.Load("https://demofree.sirv.com/nope-not-here.jpg");
             }
