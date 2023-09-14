@@ -3,13 +3,14 @@ using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using domain;
+using WindowsFormApp.forms;
 
 namespace WindowsFormApp
 {
-    public partial class FormAlbums : MaterialForm
+    public partial class MainForm : MaterialForm
     {
         private List<Album> listAlbums;
-        public FormAlbums()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -45,6 +46,12 @@ namespace WindowsFormApp
             {
                 pictureBoxAlbumCoverImg.Load("https://demofree.sirv.com/nope-not-here.jpg");
             }
+        }
+
+        private void AddAlbumBtn_Click(object sender, EventArgs e)
+        {
+            AddAlbumForm addAlbumForm = new AddAlbumForm();
+            addAlbumForm.ShowDialog();
         }
     }
 }

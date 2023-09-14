@@ -50,16 +50,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAlbums.cs">
+    <Compile Include="forms\AddAlbumForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAlbums.Designer.cs">
-      <DependentUpon>FormAlbums.cs</DependentUpon>
+    <Compile Include="forms\AddAlbumForm.Designer.cs">
+      <DependentUpon>AddAlbumForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAlbums.resx">
-      <DependentUpon>FormAlbums.cs</DependentUpon>
+    <EmbeddedResource Include="forms\AddAlbumForm.resx">
+      <DependentUpon>AddAlbumForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

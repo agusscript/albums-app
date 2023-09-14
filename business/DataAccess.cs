@@ -40,6 +40,21 @@ namespace business
             }
         }
 
+        public void executeWrite() 
+        {
+            command.Connection = conection;
+
+            try
+            {
+                conection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void closeConnection()
         {
             if (reader != null)

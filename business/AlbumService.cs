@@ -40,5 +40,25 @@ namespace WindowsFormApp
                 dataAccess.closeConnection();
             }
         }
+
+        public void Add(Album newAlbum)
+        {
+            DataAccess dataAccess = new DataAccess();
+
+            try
+            {
+                dataAccess.setQuery($"insert into ALBUMS (Title, Author, UrlCoverImage) values ('{newAlbum.Title}', '{newAlbum.Author}', '{newAlbum.CoverImage}')");
+                dataAccess.executeWrite();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                dataAccess.closeConnection();
+            }
+        }
     }
 }
