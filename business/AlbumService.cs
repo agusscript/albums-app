@@ -47,12 +47,11 @@ namespace WindowsFormApp
 
             try
             {
-                dataAccess.setQuery($"insert into ALBUMS (Title, Author, UrlCoverImage) values ('{newAlbum.Title}', '{newAlbum.Author}', '{newAlbum.CoverImage}')");
+                dataAccess.setQuery($"insert into ALBUMS (Title, Author, UrlCoverImage, IdGenre) values ('{newAlbum.Title}', '{newAlbum.Author}', '{newAlbum.CoverImage}', {newAlbum.Genre.Id})");
                 dataAccess.executeWrite();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AlbumService.cs" />
     <Compile Include="DataAccess.cs" />
+    <Compile Include="GenreService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -36,6 +36,8 @@
             this.authorTextBox = new MaterialSkin.Controls.MaterialTextBox();
             this.confirmAddAlbumBtn = new MaterialSkin.Controls.MaterialButton();
             this.cancelAddAlbumBtn = new MaterialSkin.Controls.MaterialButton();
+            this.genreComboBox = new MaterialSkin.Controls.MaterialComboBox();
+            this.genreLabel = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -100,7 +102,7 @@
             this.coverImageUrlTextBox.AnimateReadOnly = false;
             this.coverImageUrlTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.coverImageUrlTextBox.Depth = 0;
-            this.coverImageUrlTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.coverImageUrlTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.coverImageUrlTextBox.LeadingIcon = null;
             this.coverImageUrlTextBox.Location = new System.Drawing.Point(168, 217);
             this.coverImageUrlTextBox.MaximumSize = new System.Drawing.Size(220, 30);
@@ -120,7 +122,7 @@
             this.authorTextBox.AnimateReadOnly = false;
             this.authorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.authorTextBox.Depth = 0;
-            this.authorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.authorTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.authorTextBox.LeadingIcon = null;
             this.authorTextBox.Location = new System.Drawing.Point(168, 166);
             this.authorTextBox.MaximumSize = new System.Drawing.Size(220, 30);
@@ -142,7 +144,7 @@
             this.confirmAddAlbumBtn.Depth = 0;
             this.confirmAddAlbumBtn.HighEmphasis = true;
             this.confirmAddAlbumBtn.Icon = null;
-            this.confirmAddAlbumBtn.Location = new System.Drawing.Point(146, 330);
+            this.confirmAddAlbumBtn.Location = new System.Drawing.Point(145, 345);
             this.confirmAddAlbumBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.confirmAddAlbumBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.confirmAddAlbumBtn.Name = "confirmAddAlbumBtn";
@@ -162,12 +164,12 @@
             this.cancelAddAlbumBtn.Depth = 0;
             this.cancelAddAlbumBtn.HighEmphasis = true;
             this.cancelAddAlbumBtn.Icon = null;
-            this.cancelAddAlbumBtn.Location = new System.Drawing.Point(257, 330);
+            this.cancelAddAlbumBtn.Location = new System.Drawing.Point(258, 345);
             this.cancelAddAlbumBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.cancelAddAlbumBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.cancelAddAlbumBtn.Name = "cancelAddAlbumBtn";
             this.cancelAddAlbumBtn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.cancelAddAlbumBtn.Size = new System.Drawing.Size(86, 36);
+            this.cancelAddAlbumBtn.Size = new System.Drawing.Size(77, 36);
             this.cancelAddAlbumBtn.TabIndex = 7;
             this.cancelAddAlbumBtn.Text = "Cancel";
             this.cancelAddAlbumBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -175,11 +177,50 @@
             this.cancelAddAlbumBtn.UseVisualStyleBackColor = true;
             this.cancelAddAlbumBtn.Click += new System.EventHandler(this.cancelAddAlbumBtn_Click);
             // 
+            // genreComboBox
+            // 
+            this.genreComboBox.AutoResize = false;
+            this.genreComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.genreComboBox.Depth = 0;
+            this.genreComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.genreComboBox.DropDownHeight = 292;
+            this.genreComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genreComboBox.DropDownWidth = 121;
+            this.genreComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.genreComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.genreComboBox.FormattingEnabled = true;
+            this.genreComboBox.IntegralHeight = false;
+            this.genreComboBox.ItemHeight = 29;
+            this.genreComboBox.Location = new System.Drawing.Point(168, 267);
+            this.genreComboBox.MaxDropDownItems = 10;
+            this.genreComboBox.MaximumSize = new System.Drawing.Size(220, 0);
+            this.genreComboBox.MinimumSize = new System.Drawing.Size(220, 0);
+            this.genreComboBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.genreComboBox.Name = "genreComboBox";
+            this.genreComboBox.Size = new System.Drawing.Size(220, 35);
+            this.genreComboBox.StartIndex = 0;
+            this.genreComboBox.TabIndex = 8;
+            this.genreComboBox.UseTallSize = false;
+            // 
+            // genreLabel
+            // 
+            this.genreLabel.AutoSize = true;
+            this.genreLabel.Depth = 0;
+            this.genreLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.genreLabel.Location = new System.Drawing.Point(114, 271);
+            this.genreLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.genreLabel.Name = "genreLabel";
+            this.genreLabel.Size = new System.Drawing.Size(42, 19);
+            this.genreLabel.TabIndex = 9;
+            this.genreLabel.Text = "Genre";
+            // 
             // AddAlbumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 450);
+            this.Controls.Add(this.genreLabel);
+            this.Controls.Add(this.genreComboBox);
             this.Controls.Add(this.cancelAddAlbumBtn);
             this.Controls.Add(this.confirmAddAlbumBtn);
             this.Controls.Add(this.authorTextBox);
@@ -190,6 +231,7 @@
             this.Controls.Add(this.titleLabel);
             this.Name = "AddAlbumForm";
             this.Text = "Add New Album";
+            this.Load += new System.EventHandler(this.AddAlbumForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +247,7 @@
         private MaterialSkin.Controls.MaterialTextBox authorTextBox;
         private MaterialSkin.Controls.MaterialButton confirmAddAlbumBtn;
         private MaterialSkin.Controls.MaterialButton cancelAddAlbumBtn;
+        private MaterialSkin.Controls.MaterialComboBox genreComboBox;
+        private MaterialSkin.Controls.MaterialLabel genreLabel;
     }
 }
