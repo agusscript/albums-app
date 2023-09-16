@@ -42,8 +42,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewAlbums.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAlbums.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewAlbums.Location = new System.Drawing.Point(6, 67);
+            this.dataGridViewAlbums.MultiSelect = false;
             this.dataGridViewAlbums.Name = "dataGridViewAlbums";
+            this.dataGridViewAlbums.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAlbums.Size = new System.Drawing.Size(520, 457);
             this.dataGridViewAlbums.TabIndex = 0;
             this.dataGridViewAlbums.SelectionChanged += new System.EventHandler(this.dataGridViewAlbums_SelectionChanged);

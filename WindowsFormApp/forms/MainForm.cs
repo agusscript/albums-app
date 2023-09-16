@@ -22,11 +22,23 @@ namespace WindowsFormApp
 
         private void FormAlbums_Load(object sender, EventArgs e)
         {
+            ShowAlbumList();
+        }
+
+        private void ShowAlbumList()
+        {
             AlbumService service = new AlbumService();
-            listAlbums = service.BringList();
-            dataGridViewAlbums.DataSource = listAlbums;
-            dataGridViewAlbums.Columns[2].Visible = false;
-            loadImage(listAlbums[0].CoverImage);
+            try
+            {
+                listAlbums = service.BringList();
+                dataGridViewAlbums.DataSource = listAlbums;
+                // dataGridViewAlbums.Columns[2].Visible = false;
+                loadImage(listAlbums[0].CoverImage);
+            }
+            catch (Exception ex)
+            {
+                MaterialMessageBox.Show(ex.ToString());
+            }
         }
 
         private void dataGridViewAlbums_SelectionChanged(object sender, EventArgs e)
@@ -52,6 +64,7 @@ namespace WindowsFormApp
         {
             AddAlbumForm addAlbumForm = new AddAlbumForm();
             addAlbumForm.ShowDialog();
+            ShowAlbumList();
         }
     }
 }

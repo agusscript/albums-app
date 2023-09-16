@@ -14,7 +14,7 @@ namespace WindowsFormApp
 
             try
             {
-                dataAccess.setQuery("select Title, Author, UrlCoverImage, G.Name from ALBUMS A, GENRES G where A.IdGenre = G.Id");
+                dataAccess.setQuery("select Title, Author, ReleaseDate, AmountTracks, UrlCoverImage, G.Name from ALBUMS A, GENRES G where A.IdGenre = G.Id");
                 dataAccess.executeRead();
 
                 while (dataAccess.Reader.Read())
@@ -22,6 +22,8 @@ namespace WindowsFormApp
                     Album album = new Album();
                     album.Title = (string)dataAccess.Reader["Title"];
                     album.Author = (string)dataAccess.Reader["Author"];
+                    album.ReleasedDate = (DateTime)dataAccess.Reader["ReleaseDate"];
+                    album.AmountTracks = (int)dataAccess.Reader["AmountTracks"];
                     album.CoverImage = (string)dataAccess.Reader["UrlCoverImage"];
                     album.Genre = new Genre();
                     album.Genre.Name = (string)dataAccess.Reader["Name"];
@@ -47,7 +49,7 @@ namespace WindowsFormApp
 
             try
             {
-                dataAccess.setQuery($"insert into ALBUMS (Title, Author, UrlCoverImage, IdGenre) values ('{newAlbum.Title}', '{newAlbum.Author}', '{newAlbum.CoverImage}', {newAlbum.Genre.Id})");
+                dataAccess.setQuery($"insert into ALBUMS (Title, Author, ReleaseDate, AmountTracks, UrlCoverImage, IdGenre) values ('{newAlbum.Title}', '{newAlbum.Author}', '{newAlbum.ReleasedDate}', {newAlbum.AmountTracks}, '{newAlbum.CoverImage}', {newAlbum.Genre.Id})");
                 dataAccess.executeWrite();
             }
             catch (Exception ex)

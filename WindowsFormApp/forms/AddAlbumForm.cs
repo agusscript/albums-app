@@ -41,6 +41,8 @@ namespace WindowsFormApp.forms
             {
                 newAlbum.Title = titleTextBox.Text;
                 newAlbum.Author = authorTextBox.Text;
+                newAlbum.AmountTracks = int.Parse(amountTracksTextBox.Text);
+                newAlbum.ReleasedDate = DateTime.Parse(releasedDateTimePicker.Text);
                 newAlbum.CoverImage = coverImageUrlTextBox.Text;
                 newAlbum.Genre = (Genre)genreComboBox.SelectedItem;
 
