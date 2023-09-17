@@ -81,5 +81,24 @@ namespace WindowsFormApp
                 dataAccess.closeConnection();
             }
         }
+
+        public void Delete(int albumId)
+        {
+            DataAccess dataaccess = new DataAccess();
+
+            try
+            {
+                dataaccess.setQuery($"delete from ALBUMS where Id = {albumId}");
+                dataaccess.executeWrite();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dataaccess.closeConnection();
+            }
+        }
     }
 }

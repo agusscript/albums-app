@@ -33,28 +33,40 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.AddAlbumBtn = new MaterialSkin.Controls.MaterialButton();
             this.editAlbumBtn = new MaterialSkin.Controls.MaterialButton();
+            this.deleteAlbumBtn = new MaterialSkin.Controls.MaterialButton();
+            this.totalAlbumsLabel = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlbums)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumCoverImg)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewAlbums
             // 
+            this.dataGridViewAlbums.AllowUserToAddRows = false;
+            this.dataGridViewAlbums.AllowUserToDeleteRows = false;
+            this.dataGridViewAlbums.AllowUserToResizeColumns = false;
+            this.dataGridViewAlbums.AllowUserToResizeRows = false;
             this.dataGridViewAlbums.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewAlbums.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAlbums.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewAlbums.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewAlbums.ColumnHeadersHeight = 30;
+            this.dataGridViewAlbums.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewAlbums.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewAlbums.Location = new System.Drawing.Point(6, 67);
+            this.dataGridViewAlbums.Location = new System.Drawing.Point(6, 68);
             this.dataGridViewAlbums.MultiSelect = false;
             this.dataGridViewAlbums.Name = "dataGridViewAlbums";
+            this.dataGridViewAlbums.RowHeadersVisible = false;
             this.dataGridViewAlbums.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewAlbums.ShowEditingIcon = false;
+            this.dataGridViewAlbums.ShowRowErrors = false;
             this.dataGridViewAlbums.Size = new System.Drawing.Size(520, 457);
             this.dataGridViewAlbums.TabIndex = 0;
             this.dataGridViewAlbums.SelectionChanged += new System.EventHandler(this.dataGridViewAlbums_SelectionChanged);
             // 
             // pictureBoxAlbumCoverImg
             // 
-            this.pictureBoxAlbumCoverImg.Location = new System.Drawing.Point(579, 122);
+            this.pictureBoxAlbumCoverImg.Location = new System.Drawing.Point(572, 150);
             this.pictureBoxAlbumCoverImg.Name = "pictureBoxAlbumCoverImg";
             this.pictureBoxAlbumCoverImg.Size = new System.Drawing.Size(270, 250);
             this.pictureBoxAlbumCoverImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -68,7 +80,7 @@
             this.AddAlbumBtn.Depth = 0;
             this.AddAlbumBtn.HighEmphasis = true;
             this.AddAlbumBtn.Icon = null;
-            this.AddAlbumBtn.Location = new System.Drawing.Point(579, 405);
+            this.AddAlbumBtn.Location = new System.Drawing.Point(572, 433);
             this.AddAlbumBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AddAlbumBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.AddAlbumBtn.Name = "AddAlbumBtn";
@@ -88,7 +100,7 @@
             this.editAlbumBtn.Depth = 0;
             this.editAlbumBtn.HighEmphasis = true;
             this.editAlbumBtn.Icon = null;
-            this.editAlbumBtn.Location = new System.Drawing.Point(668, 405);
+            this.editAlbumBtn.Location = new System.Drawing.Point(672, 433);
             this.editAlbumBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.editAlbumBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.editAlbumBtn.Name = "editAlbumBtn";
@@ -101,16 +113,51 @@
             this.editAlbumBtn.UseVisualStyleBackColor = true;
             this.editAlbumBtn.Click += new System.EventHandler(this.editAlbumBtn_Click);
             // 
+            // deleteAlbumBtn
+            // 
+            this.deleteAlbumBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.deleteAlbumBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.deleteAlbumBtn.Depth = 0;
+            this.deleteAlbumBtn.HighEmphasis = true;
+            this.deleteAlbumBtn.Icon = null;
+            this.deleteAlbumBtn.Location = new System.Drawing.Point(769, 433);
+            this.deleteAlbumBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.deleteAlbumBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.deleteAlbumBtn.Name = "deleteAlbumBtn";
+            this.deleteAlbumBtn.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.deleteAlbumBtn.Size = new System.Drawing.Size(73, 36);
+            this.deleteAlbumBtn.TabIndex = 4;
+            this.deleteAlbumBtn.Text = "Delete";
+            this.deleteAlbumBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.deleteAlbumBtn.UseAccentColor = false;
+            this.deleteAlbumBtn.UseVisualStyleBackColor = true;
+            this.deleteAlbumBtn.Click += new System.EventHandler(this.deleteAlbumBtn_Click_1);
+            // 
+            // totalAlbumsLabel
+            // 
+            this.totalAlbumsLabel.AutoSize = true;
+            this.totalAlbumsLabel.Depth = 0;
+            this.totalAlbumsLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.totalAlbumsLabel.Location = new System.Drawing.Point(569, 93);
+            this.totalAlbumsLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.totalAlbumsLabel.Name = "totalAlbumsLabel";
+            this.totalAlbumsLabel.Size = new System.Drawing.Size(100, 19);
+            this.totalAlbumsLabel.TabIndex = 5;
+            this.totalAlbumsLabel.Text = "Total Albums:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(880, 530);
+            this.Controls.Add(this.totalAlbumsLabel);
+            this.Controls.Add(this.deleteAlbumBtn);
             this.Controls.Add(this.editAlbumBtn);
             this.Controls.Add(this.AddAlbumBtn);
             this.Controls.Add(this.pictureBoxAlbumCoverImg);
             this.Controls.Add(this.dataGridViewAlbums);
+            this.Font = new System.Drawing.Font("Malgun Gothic Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MinimumSize = new System.Drawing.Size(880, 530);
             this.Name = "MainForm";
@@ -131,6 +178,8 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private MaterialSkin.Controls.MaterialButton AddAlbumBtn;
         private MaterialSkin.Controls.MaterialButton editAlbumBtn;
+        private MaterialSkin.Controls.MaterialButton deleteAlbumBtn;
+        private MaterialSkin.Controls.MaterialLabel totalAlbumsLabel;
     }
 }
 

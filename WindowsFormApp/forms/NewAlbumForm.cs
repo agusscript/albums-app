@@ -16,8 +16,6 @@ namespace WindowsFormApp.forms
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Brown800, Primary.Brown800, Primary.Brown500, Accent.LightBlue200, TextShade.WHITE);
         }
 
         public NewAlbumForm(Album albumToEdit)
@@ -26,8 +24,6 @@ namespace WindowsFormApp.forms
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Brown800, Primary.Brown800, Primary.Brown500, Accent.LightBlue200, TextShade.WHITE);
 
             this.album = albumToEdit;
             Text = "Edit Album";
@@ -91,6 +87,7 @@ namespace WindowsFormApp.forms
                     albumService.Edit(album);
                     MaterialMessageBox.Show("The album was edited successfully");
                 }
+
                 this.Close();
             }
             catch (Exception ex)

@@ -1,8 +1,9 @@
-﻿using MaterialSkin;
+﻿using domain;
+using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
-using domain;
+using System.Windows.Forms;
 using WindowsFormApp.forms;
 
 namespace WindowsFormApp
@@ -16,8 +17,6 @@ namespace WindowsFormApp
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Brown700, Primary.Brown700, Primary.Brown400, Accent.LightBlue200, TextShade.WHITE);
         }
 
         private void FormAlbums_Load(object sender, EventArgs e)
@@ -35,11 +34,17 @@ namespace WindowsFormApp
                 dataGridViewAlbums.Columns["Id"].Visible = false;
                 dataGridViewAlbums.Columns["CoverImage"].Visible = false;
                 ImageHelper.LoadImage(pictureBoxAlbumCoverImg, listAlbums[0].CoverImage);
+                ShowAlbumsCount();
             }
             catch (Exception ex)
             {
                 MaterialMessageBox.Show(ex.ToString());
             }
+        }
+
+        private void ShowAlbumsCount()
+        {
+            totalAlbumsLabel.Text = $"Total Albums: {listAlbums.Count}";
         }
 
         private void dataGridViewAlbums_SelectionChanged(object sender, EventArgs e)
@@ -61,6 +66,29 @@ namespace WindowsFormApp
             NewAlbumForm editAlbumForm = new NewAlbumForm(selectedAlbum);
             editAlbumForm.ShowDialog();
             ShowAlbumList();
+        }
+
+        private void deleteAlbumBtn_Click_1(object sender, EventArgs e)
+        {
+            AlbumService albumService = new AlbumService();
+            Album selectedAlbum;
+
+            try
+            {
+                DialogResult confirmDelete = MaterialMessageBox.Show("Are you sure to delete this food ?", "Confirm Delete !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirmDelete == DialogResult.Yes)
+                {
+                    selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
+                    albumService.Delete(selectedAlbum.Id);
+                    ShowAlbumList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MaterialMessageBox.Show(ex.ToString());
+            }
         }
     }
 }
