@@ -3,6 +3,7 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
 using business;
+using System.Globalization;
 
 namespace WindowsFormApp.forms
 {
@@ -32,6 +33,11 @@ namespace WindowsFormApp.forms
             }
         }
 
+        private void coverImageUrlTextBox_Leave(object sender, EventArgs e)
+        {
+            ImageHelper.LoadImage(previewImgPictureBox, coverImageUrlTextBox.Text);
+        }
+
         private void confirmAddAlbumBtn_Click(object sender, System.EventArgs e)
         {
             Album newAlbum = new Album();
@@ -42,7 +48,7 @@ namespace WindowsFormApp.forms
                 newAlbum.Title = titleTextBox.Text;
                 newAlbum.Author = authorTextBox.Text;
                 newAlbum.AmountTracks = int.Parse(amountTracksTextBox.Text);
-                newAlbum.ReleasedDate = DateTime.Parse(releasedDateTimePicker.Text);
+                newAlbum.ReleasedDate = releasedDateTimePicker.Value.ToString("MM/dd/yyyy");
                 newAlbum.CoverImage = coverImageUrlTextBox.Text;
                 newAlbum.Genre = (Genre)genreComboBox.SelectedItem;
 

@@ -32,8 +32,8 @@ namespace WindowsFormApp
             {
                 listAlbums = service.BringList();
                 dataGridViewAlbums.DataSource = listAlbums;
-                // dataGridViewAlbums.Columns[2].Visible = false;
-                loadImage(listAlbums[0].CoverImage);
+                dataGridViewAlbums.Columns["CoverImage"].Visible = false;
+                ImageHelper.LoadImage(pictureBoxAlbumCoverImg, listAlbums[0].CoverImage);
             }
             catch (Exception ex)
             {
@@ -44,20 +44,7 @@ namespace WindowsFormApp
         private void dataGridViewAlbums_SelectionChanged(object sender, EventArgs e)
         {
             Album selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
-            loadImage(selectedAlbum.CoverImage);
-        }
-
-        private void loadImage(string image)
-        {
-            try
-            {
-                pictureBoxAlbumCoverImg.Load(image);
-
-            }
-            catch (Exception ex)
-            {
-                pictureBoxAlbumCoverImg.Load("https://demofree.sirv.com/nope-not-here.jpg");
-            }
+            ImageHelper.LoadImage(pictureBoxAlbumCoverImg, selectedAlbum.CoverImage);
         }
 
         private void AddAlbumBtn_Click(object sender, EventArgs e)

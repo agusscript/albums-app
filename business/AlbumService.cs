@@ -22,7 +22,7 @@ namespace WindowsFormApp
                     Album album = new Album();
                     album.Title = (string)dataAccess.Reader["Title"];
                     album.Author = (string)dataAccess.Reader["Author"];
-                    album.ReleasedDate = (DateTime)dataAccess.Reader["ReleaseDate"];
+                    album.ReleasedDate = dataAccess.Reader["ReleaseDate"].ToString();
                     album.AmountTracks = (int)dataAccess.Reader["AmountTracks"];
                     album.CoverImage = (string)dataAccess.Reader["UrlCoverImage"];
                     album.Genre = new Genre();
