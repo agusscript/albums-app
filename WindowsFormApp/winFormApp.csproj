@@ -53,11 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="forms\AddAlbumForm.cs">
+    <Compile Include="forms\NewAlbumForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\AddAlbumForm.Designer.cs">
-      <DependentUpon>AddAlbumForm.cs</DependentUpon>
+    <Compile Include="forms\NewAlbumForm.Designer.cs">
+      <DependentUpon>NewAlbumForm.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -68,8 +68,8 @@
     <Compile Include="helpers\ImageHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="forms\AddAlbumForm.resx">
-      <DependentUpon>AddAlbumForm.cs</DependentUpon>
+    <EmbeddedResource Include="forms\NewAlbumForm.resx">
+      <DependentUpon>NewAlbumForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

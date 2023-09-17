@@ -32,6 +32,7 @@
             this.pictureBoxAlbumCoverImg = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.AddAlbumBtn = new MaterialSkin.Controls.MaterialButton();
+            this.editAlbumBtn = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlbums)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumCoverImg)).BeginInit();
             this.SuspendLayout();
@@ -72,13 +73,33 @@
             this.AddAlbumBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.AddAlbumBtn.Name = "AddAlbumBtn";
             this.AddAlbumBtn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.AddAlbumBtn.Size = new System.Drawing.Size(103, 36);
+            this.AddAlbumBtn.Size = new System.Drawing.Size(64, 36);
             this.AddAlbumBtn.TabIndex = 2;
-            this.AddAlbumBtn.Text = "Add Album";
+            this.AddAlbumBtn.Text = "Add";
             this.AddAlbumBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.AddAlbumBtn.UseAccentColor = false;
             this.AddAlbumBtn.UseVisualStyleBackColor = true;
             this.AddAlbumBtn.Click += new System.EventHandler(this.AddAlbumBtn_Click);
+            // 
+            // editAlbumBtn
+            // 
+            this.editAlbumBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.editAlbumBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.editAlbumBtn.Depth = 0;
+            this.editAlbumBtn.HighEmphasis = true;
+            this.editAlbumBtn.Icon = null;
+            this.editAlbumBtn.Location = new System.Drawing.Point(668, 405);
+            this.editAlbumBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.editAlbumBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.editAlbumBtn.Name = "editAlbumBtn";
+            this.editAlbumBtn.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.editAlbumBtn.Size = new System.Drawing.Size(64, 36);
+            this.editAlbumBtn.TabIndex = 3;
+            this.editAlbumBtn.Text = "Edit";
+            this.editAlbumBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.editAlbumBtn.UseAccentColor = false;
+            this.editAlbumBtn.UseVisualStyleBackColor = true;
+            this.editAlbumBtn.Click += new System.EventHandler(this.editAlbumBtn_Click);
             // 
             // MainForm
             // 
@@ -86,6 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(880, 530);
+            this.Controls.Add(this.editAlbumBtn);
             this.Controls.Add(this.AddAlbumBtn);
             this.Controls.Add(this.pictureBoxAlbumCoverImg);
             this.Controls.Add(this.dataGridViewAlbums);
@@ -108,6 +130,7 @@
         private System.Windows.Forms.PictureBox pictureBoxAlbumCoverImg;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private MaterialSkin.Controls.MaterialButton AddAlbumBtn;
+        private MaterialSkin.Controls.MaterialButton editAlbumBtn;
     }
 }
 

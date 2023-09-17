@@ -32,6 +32,7 @@ namespace WindowsFormApp
             {
                 listAlbums = service.BringList();
                 dataGridViewAlbums.DataSource = listAlbums;
+                dataGridViewAlbums.Columns["Id"].Visible = false;
                 dataGridViewAlbums.Columns["CoverImage"].Visible = false;
                 ImageHelper.LoadImage(pictureBoxAlbumCoverImg, listAlbums[0].CoverImage);
             }
@@ -49,8 +50,16 @@ namespace WindowsFormApp
 
         private void AddAlbumBtn_Click(object sender, EventArgs e)
         {
-            AddAlbumForm addAlbumForm = new AddAlbumForm();
+            NewAlbumForm addAlbumForm = new NewAlbumForm();
             addAlbumForm.ShowDialog();
+            ShowAlbumList();
+        }
+
+        private void editAlbumBtn_Click(object sender, EventArgs e)
+        {
+            Album selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
+            NewAlbumForm editAlbumForm = new NewAlbumForm(selectedAlbum);
+            editAlbumForm.ShowDialog();
             ShowAlbumList();
         }
     }

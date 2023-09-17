@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormApp.forms
 {
-    partial class AddAlbumForm
+    partial class NewAlbumForm
     {
         /// <summary>
         /// Required designer variable.
@@ -313,7 +313,7 @@
             this.MaximumSize = new System.Drawing.Size(740, 470);
             this.MinimumSize = new System.Drawing.Size(740, 470);
             this.Name = "AddAlbumForm";
-            this.Text = "Add New Album";
+            this.Text = "New Album";
             this.Load += new System.EventHandler(this.AddAlbumForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.previewImgPictureBox)).EndInit();
             this.ResumeLayout(false);
