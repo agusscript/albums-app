@@ -10,7 +10,7 @@ namespace WindowsFormApp
 {
     public partial class MainForm : MaterialForm
     {
-        private List<Album> listAlbums;
+        private List<Album> albumsList;
         public MainForm()
         {
             InitializeComponent();
@@ -29,11 +29,10 @@ namespace WindowsFormApp
             AlbumService service = new AlbumService();
             try
             {
-                listAlbums = service.BringList();
-                dataGridViewAlbums.DataSource = listAlbums;
-                dataGridViewAlbums.Columns["Id"].Visible = false;
-                dataGridViewAlbums.Columns["CoverImage"].Visible = false;
-                ImageHelper.LoadImage(pictureBoxAlbumCoverImg, listAlbums[0].CoverImage);
+                albumsList = service.BringList();
+                dataGridViewAlbums.DataSource = albumsList;
+                ImageHelper.LoadImage(pictureBoxAlbumCoverImg, albumsList[0].CoverImage);
+                HideColumns();
                 ShowAlbumsCount();
             }
             catch (Exception ex)
@@ -44,13 +43,16 @@ namespace WindowsFormApp
 
         private void ShowAlbumsCount()
         {
-            totalAlbumsLabel.Text = $"Total Albums: {listAlbums.Count}";
+            totalAlbumsLabel.Text = $"Total Albums: {albumsList.Count}";
         }
 
         private void dataGridViewAlbums_SelectionChanged(object sender, EventArgs e)
         {
-            Album selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
-            ImageHelper.LoadImage(pictureBoxAlbumCoverImg, selectedAlbum.CoverImage);
+            if (dataGridViewAlbums.CurrentRow != null)
+            {
+                Album selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
+                ImageHelper.LoadImage(pictureBoxAlbumCoverImg, selectedAlbum.CoverImage);
+            }
         }
 
         private void AddAlbumBtn_Click(object sender, EventArgs e)
@@ -89,6 +91,32 @@ namespace WindowsFormApp
 
                 MaterialMessageBox.Show(ex.ToString());
             }
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            List<Album> filteredList;
+            string filter = searchTextBox.Text;
+
+            if (filter.Length >= 3)
+            {
+                filteredList = albumsList.FindAll(album => album.Title.ToLower().Contains(filter.ToLower()) || album.Author.ToLower().Contains(filter.ToLower()));
+            }
+            else
+            {
+                filteredList = albumsList;
+            }
+
+            dataGridViewAlbums.DataSource = null;
+            dataGridViewAlbums.DataSource = filteredList;
+            HideColumns();
+        }
+
+        private void HideColumns()
+        {
+            dataGridViewAlbums.Columns["Id"].Visible = false;
+            dataGridViewAlbums.Columns["CoverImage"].Visible = false;
+            dataGridViewAlbums.Columns["ReleasedDate"].Visible = false;
         }
     }
 }

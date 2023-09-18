@@ -35,6 +35,8 @@
             this.editAlbumBtn = new MaterialSkin.Controls.MaterialButton();
             this.deleteAlbumBtn = new MaterialSkin.Controls.MaterialButton();
             this.totalAlbumsLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.filterLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.searchTextBox = new MaterialSkin.Controls.MaterialTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlbums)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumCoverImg)).BeginInit();
             this.SuspendLayout();
@@ -53,14 +55,14 @@
             this.dataGridViewAlbums.ColumnHeadersHeight = 30;
             this.dataGridViewAlbums.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewAlbums.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewAlbums.Location = new System.Drawing.Point(6, 68);
+            this.dataGridViewAlbums.Location = new System.Drawing.Point(6, 128);
             this.dataGridViewAlbums.MultiSelect = false;
             this.dataGridViewAlbums.Name = "dataGridViewAlbums";
             this.dataGridViewAlbums.RowHeadersVisible = false;
             this.dataGridViewAlbums.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAlbums.ShowEditingIcon = false;
             this.dataGridViewAlbums.ShowRowErrors = false;
-            this.dataGridViewAlbums.Size = new System.Drawing.Size(520, 457);
+            this.dataGridViewAlbums.Size = new System.Drawing.Size(520, 397);
             this.dataGridViewAlbums.TabIndex = 0;
             this.dataGridViewAlbums.SelectionChanged += new System.EventHandler(this.dataGridViewAlbums_SelectionChanged);
             // 
@@ -145,12 +147,47 @@
             this.totalAlbumsLabel.TabIndex = 5;
             this.totalAlbumsLabel.Text = "Total Albums:";
             // 
+            // filterLabel
+            // 
+            this.filterLabel.AutoSize = true;
+            this.filterLabel.Depth = 0;
+            this.filterLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.filterLabel.Location = new System.Drawing.Point(82, 87);
+            this.filterLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.filterLabel.Name = "filterLabel";
+            this.filterLabel.Size = new System.Drawing.Size(36, 19);
+            this.filterLabel.TabIndex = 7;
+            this.filterLabel.Text = "Filter";
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.AnimateReadOnly = false;
+            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTextBox.Depth = 0;
+            this.searchTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.searchTextBox.LeadingIcon = null;
+            this.searchTextBox.Location = new System.Drawing.Point(128, 82);
+            this.searchTextBox.MaximumSize = new System.Drawing.Size(246, 30);
+            this.searchTextBox.MaxLength = 50;
+            this.searchTextBox.MinimumSize = new System.Drawing.Size(246, 30);
+            this.searchTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.searchTextBox.Multiline = false;
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(246, 30);
+            this.searchTextBox.TabIndex = 8;
+            this.searchTextBox.Text = "";
+            this.searchTextBox.TrailingIcon = null;
+            this.searchTextBox.UseTallSize = false;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(880, 530);
+            this.Controls.Add(this.searchTextBox);
+            this.Controls.Add(this.filterLabel);
             this.Controls.Add(this.totalAlbumsLabel);
             this.Controls.Add(this.deleteAlbumBtn);
             this.Controls.Add(this.editAlbumBtn);
@@ -180,6 +217,8 @@
         private MaterialSkin.Controls.MaterialButton editAlbumBtn;
         private MaterialSkin.Controls.MaterialButton deleteAlbumBtn;
         private MaterialSkin.Controls.MaterialLabel totalAlbumsLabel;
+        private MaterialSkin.Controls.MaterialLabel filterLabel;
+        private MaterialSkin.Controls.MaterialTextBox searchTextBox;
     }
 }
 
