@@ -17,6 +17,7 @@ namespace WindowsFormApp
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
 
         private void FormAlbums_Load(object sender, EventArgs e)
@@ -31,13 +32,12 @@ namespace WindowsFormApp
             {
                 albumsList = service.BringList();
                 dataGridViewAlbums.DataSource = albumsList;
-                ImageHelper.LoadImage(pictureBoxAlbumCoverImg, albumsList[0].CoverImage);
                 HideColumns();
                 ShowAlbumsCount();
             }
             catch (Exception ex)
             {
-                MaterialMessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -51,7 +51,6 @@ namespace WindowsFormApp
             if (dataGridViewAlbums.CurrentRow != null)
             {
                 Album selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
-                ImageHelper.LoadImage(pictureBoxAlbumCoverImg, selectedAlbum.CoverImage);
             }
         }
 
@@ -64,10 +63,13 @@ namespace WindowsFormApp
 
         private void editAlbumBtn_Click(object sender, EventArgs e)
         {
-            Album selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
-            NewAlbumForm editAlbumForm = new NewAlbumForm(selectedAlbum);
-            editAlbumForm.ShowDialog();
-            ShowAlbumList();
+            if (dataGridViewAlbums.CurrentRow != null)
+            {
+                Album selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
+                NewAlbumForm editAlbumForm = new NewAlbumForm(selectedAlbum);
+                editAlbumForm.ShowDialog();
+                ShowAlbumList();
+            }
         }
 
         private void deleteAlbumBtn_Click_1(object sender, EventArgs e)
@@ -77,28 +79,29 @@ namespace WindowsFormApp
 
             try
             {
-                DialogResult confirmDelete = MaterialMessageBox.Show("Are you sure to delete this food ?", "Confirm Delete !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult confirmDelete = MessageBox.Show("Are you sure to delete this food ?", "Confirm Delete !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (confirmDelete == DialogResult.Yes)
                 {
                     selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
                     albumService.Delete(selectedAlbum.Id);
+                    MessageBox.Show("The album was deleted successfully", "Delete Album", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ShowAlbumList();
                 }
             }
             catch (Exception ex)
             {
 
-                MaterialMessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
         }
 
-        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        private void searchBtn_Click(object sender, EventArgs e)
         {
             List<Album> filteredList;
             string filter = searchTextBox.Text;
 
-            if (filter.Length >= 3)
+            if (filter.Length >= 2)
             {
                 filteredList = albumsList.FindAll(album => album.Title.ToLower().Contains(filter.ToLower()) || album.Author.ToLower().Contains(filter.ToLower()));
             }

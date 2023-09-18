@@ -3,6 +3,7 @@ using domain;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
+using System.Windows.Forms;
 
 namespace WindowsFormApp.forms
 {
@@ -50,7 +51,7 @@ namespace WindowsFormApp.forms
             }
             catch (Exception ex)
             {
-                MaterialMessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -70,30 +71,49 @@ namespace WindowsFormApp.forms
                     album = new Album();
                 }
 
-                album.Title = titleTextBox.Text;
-                album.Author = authorTextBox.Text;
-                album.AmountTracks = int.Parse(amountTracksTextBox.Text);
-                album.ReleasedDate = releasedDateTimePicker.Value.ToString("MM/dd/yyyy");
-                album.CoverImage = coverImageUrlTextBox.Text;
-                album.Genre = (Genre)genreComboBox.SelectedItem;
+                bool validatedInt = ValidateInt(out string errorMessageType);
 
-                if (album.Id == 0)
+                if (validatedInt)
                 {
-                    albumService.Add(album);
-                    MaterialMessageBox.Show("The new album was successfully added");
+                    album.Title = titleTextBox.Text;
+                    album.Author = authorTextBox.Text;
+                    album.AmountTracks = int.Parse(amountTracksTextBox.Text);
+                    album.ReleasedDate = releasedDateTimePicker.Value.ToString("MM/dd/yyyy");
+                    album.CoverImage = coverImageUrlTextBox.Text;
+                    album.Genre = (Genre)genreComboBox.SelectedItem;
+
+                    if (album.Id == 0)
+                    {
+                        albumService.Add(album);
+                        MessageBox.Show("The new album was successfully added", "Add Album", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        albumService.Edit(album);
+                        MessageBox.Show("The album was edited successfully", "Edit Album", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                 }
                 else
                 {
-                    albumService.Edit(album);
-                    MaterialMessageBox.Show("The album was edited successfully");
+                    MessageBox.Show(errorMessageType, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                this.Close();
             }
             catch (Exception ex)
             {
-                MaterialMessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
+        }
+
+        private bool ValidateInt(out string errorMessageType)
+        {
+            errorMessageType = string.Empty;
+
+            if (!int.TryParse(amountTracksTextBox.Text, out int amountTracks))
+                errorMessageType += "The Amount Tracks field can only be an integer type." + Environment.NewLine;
+
+            return errorMessageType == string.Empty;
         }
 
         private void cancelAddAlbumBtn_Click(object sender, System.EventArgs e)
