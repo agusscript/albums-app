@@ -38,6 +38,7 @@
             this.filterLabel = new MaterialSkin.Controls.MaterialLabel();
             this.searchTextBox = new MaterialSkin.Controls.MaterialTextBox();
             this.searchBtn = new MaterialSkin.Controls.MaterialButton();
+            this.viewDetailsBtn = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlbums)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,9 +72,8 @@
             this.dataGridViewAlbums.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAlbums.ShowEditingIcon = false;
             this.dataGridViewAlbums.ShowRowErrors = false;
-            this.dataGridViewAlbums.Size = new System.Drawing.Size(594, 403);
+            this.dataGridViewAlbums.Size = new System.Drawing.Size(594, 453);
             this.dataGridViewAlbums.TabIndex = 0;
-            this.dataGridViewAlbums.SelectionChanged += new System.EventHandler(this.dataGridViewAlbums_SelectionChanged);
             // 
             // AddAlbumBtn
             // 
@@ -82,7 +82,7 @@
             this.AddAlbumBtn.Depth = 0;
             this.AddAlbumBtn.HighEmphasis = true;
             this.AddAlbumBtn.Icon = null;
-            this.AddAlbumBtn.Location = new System.Drawing.Point(626, 215);
+            this.AddAlbumBtn.Location = new System.Drawing.Point(629, 277);
             this.AddAlbumBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AddAlbumBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.AddAlbumBtn.Name = "AddAlbumBtn";
@@ -102,7 +102,7 @@
             this.editAlbumBtn.Depth = 0;
             this.editAlbumBtn.HighEmphasis = true;
             this.editAlbumBtn.Icon = null;
-            this.editAlbumBtn.Location = new System.Drawing.Point(626, 281);
+            this.editAlbumBtn.Location = new System.Drawing.Point(629, 343);
             this.editAlbumBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.editAlbumBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.editAlbumBtn.Name = "editAlbumBtn";
@@ -122,7 +122,7 @@
             this.deleteAlbumBtn.Depth = 0;
             this.deleteAlbumBtn.HighEmphasis = true;
             this.deleteAlbumBtn.Icon = null;
-            this.deleteAlbumBtn.Location = new System.Drawing.Point(626, 347);
+            this.deleteAlbumBtn.Location = new System.Drawing.Point(629, 409);
             this.deleteAlbumBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.deleteAlbumBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.deleteAlbumBtn.Name = "deleteAlbumBtn";
@@ -202,12 +202,33 @@
             this.searchBtn.UseVisualStyleBackColor = true;
             this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
+            // viewDetailsBtn
+            // 
+            this.viewDetailsBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.viewDetailsBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.viewDetailsBtn.Depth = 0;
+            this.viewDetailsBtn.HighEmphasis = true;
+            this.viewDetailsBtn.Icon = null;
+            this.viewDetailsBtn.Location = new System.Drawing.Point(629, 213);
+            this.viewDetailsBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.viewDetailsBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.viewDetailsBtn.Name = "viewDetailsBtn";
+            this.viewDetailsBtn.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.viewDetailsBtn.Size = new System.Drawing.Size(118, 36);
+            this.viewDetailsBtn.TabIndex = 10;
+            this.viewDetailsBtn.Text = "View Details";
+            this.viewDetailsBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.viewDetailsBtn.UseAccentColor = false;
+            this.viewDetailsBtn.UseVisualStyleBackColor = true;
+            this.viewDetailsBtn.Click += new System.EventHandler(this.viewDetailsBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(780, 530);
+            this.ClientSize = new System.Drawing.Size(780, 580);
+            this.Controls.Add(this.viewDetailsBtn);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.filterLabel);
@@ -219,8 +240,8 @@
             this.Font = new System.Drawing.Font("Malgun Gothic Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(780, 530);
-            this.MinimumSize = new System.Drawing.Size(780, 530);
+            this.MaximumSize = new System.Drawing.Size(780, 580);
+            this.MinimumSize = new System.Drawing.Size(780, 580);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -243,6 +264,7 @@
         private MaterialSkin.Controls.MaterialLabel filterLabel;
         private MaterialSkin.Controls.MaterialTextBox searchTextBox;
         private MaterialSkin.Controls.MaterialButton searchBtn;
+        private MaterialSkin.Controls.MaterialButton viewDetailsBtn;
     }
 }
 

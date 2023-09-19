@@ -46,12 +46,11 @@ namespace WindowsFormApp
             totalAlbumsLabel.Text = $"Total Albums: {albumsList.Count}";
         }
 
-        private void dataGridViewAlbums_SelectionChanged(object sender, EventArgs e)
+        private void viewDetailsBtn_Click(object sender, EventArgs e)
         {
-            if (dataGridViewAlbums.CurrentRow != null)
-            {
-                Album selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
-            }
+            Album selectedAlbum = (Album)dataGridViewAlbums.CurrentRow.DataBoundItem;
+            DetailsForm detailsForm = new DetailsForm(selectedAlbum);
+            detailsForm.ShowDialog();
         }
 
         private void AddAlbumBtn_Click(object sender, EventArgs e)

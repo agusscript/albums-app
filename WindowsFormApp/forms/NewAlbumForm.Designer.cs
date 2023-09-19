@@ -289,7 +289,7 @@
             this.previewImgPictureBox.TabIndex = 15;
             this.previewImgPictureBox.TabStop = false;
             // 
-            // AddAlbumForm
+            // NewAlbumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -312,7 +312,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(740, 470);
             this.MinimumSize = new System.Drawing.Size(740, 470);
-            this.Name = "AddAlbumForm";
+            this.Name = "NewAlbumForm";
             this.Text = "New Album";
             this.Load += new System.EventHandler(this.AddAlbumForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.previewImgPictureBox)).EndInit();
