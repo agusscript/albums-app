@@ -78,7 +78,7 @@ namespace WindowsFormApp
 
             try
             {
-                DialogResult confirmDelete = MessageBox.Show("Are you sure to delete this food ?", "Confirm Delete !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult confirmDelete = MessageBox.Show("Are you sure to delete this album ?", "Confirm Delete !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (confirmDelete == DialogResult.Yes)
                 {
