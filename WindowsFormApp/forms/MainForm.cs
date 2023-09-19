@@ -33,7 +33,7 @@ namespace WindowsFormApp
                 albumsList = service.BringList();
                 dataGridViewAlbums.DataSource = albumsList;
                 HideColumns();
-                ShowAlbumsCount();
+                ShowAlbumsCount(albumsList);
             }
             catch (Exception ex)
             {
@@ -41,9 +41,9 @@ namespace WindowsFormApp
             }
         }
 
-        private void ShowAlbumsCount()
+        private void ShowAlbumsCount(List<Album> albumList)
         {
-            totalAlbumsLabel.Text = $"Total Albums: {albumsList.Count}";
+            totalAlbumsLabel.Text = $"Total Albums: {albumList.Count}";
         }
 
         private void viewDetailsBtn_Click(object sender, EventArgs e)
@@ -112,6 +112,16 @@ namespace WindowsFormApp
             dataGridViewAlbums.DataSource = null;
             dataGridViewAlbums.DataSource = filteredList;
             HideColumns();
+            ShowAlbumsCount(filteredList);
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (searchTextBox.Text == "")
+            {
+                ShowAlbumList();
+                ShowAlbumsCount(albumsList);
+            }
         }
 
         private void HideColumns()

@@ -179,6 +179,7 @@
             this.searchTextBox.Text = "";
             this.searchTextBox.TrailingIcon = null;
             this.searchTextBox.UseTallSize = false;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // searchBtn
             // 
