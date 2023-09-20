@@ -61,3 +61,10 @@ Este proyecto es una aplicación de escritorio que permite gestionar una lista d
 
 ![](assets/screenshots/delete-view.PNG)
 
+## Video explicativo
+
+<p>
+  <a href="https://www.youtube.com/watch?v=P0SVGRKOtPo">
+  <img src="https://img.shields.io/badge/-Youtube-darkred?style=flat-square&logo=youtube&logoColor=white" height="30" alt="Youtube"/>
+ </a>
+</p>
